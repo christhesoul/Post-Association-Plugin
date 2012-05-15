@@ -25,16 +25,7 @@ function Post_Association() {
 		'prefix' => '_my_'
 	));
 	
-	global $pagenow, $typenow;
-	$dir = get_bloginfo('template_directory');
-	
-	if (is_admin() && $pagenow=='post-new.php' OR $pagenow=='post.php') {
-		wp_enqueue_script('admin-jquery-ui', plugins_url('/js/jquery-ui.js',__FILE__), 'jquery');
-		wp_enqueue_script('admin-jquery-ui-timepicker', plugins_url('/js/timepicker.js',__FILE__), 'jquery');
-		wp_enqueue_script('admin-date-picker', plugins_url('/js/condiment_date_picker.js',__FILE__), 'jquery');
-	}
-	
-	//include_once dirname(__FILE__) . '/helpers.php';
+	include_once dirname(__FILE__) . '/helpers.php';
 	
 }
 
