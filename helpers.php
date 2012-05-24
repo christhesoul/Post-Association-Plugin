@@ -28,4 +28,12 @@ function print_list_of_related_posts(){
 	echo $string;
 }
 
+function this_belongs_to($link = true) {
+	$id = get_post_meta(get_the_id(),'_my_related_to_cpt');
+	$post_title = get_the_title($id[0]);
+	$url = get_permalink($id[0]);
+	$string.= $link == true ? '<a href="'.$url.'">'.$post_title.'</a>' : $post_title;
+	echo $string;
+}
+
 ?>

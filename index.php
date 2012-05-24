@@ -15,12 +15,21 @@ function Post_Association() {
 	$association_has_many_post_types = $pa_options['has_many'];
 	$association_belongs_to_post_types = $pa_options['belongs_to'];
 
-	$post_association_mb = new WPAlchemy_MetaBox(array
+	$pa_has_many_mb = new WPAlchemy_MetaBox(array
 	(
 		'id' => '_post_association_meta',
 		'title' => 'Post Association Meta',
-		'template' => dirname(__FILE__) . '/post_association_meta.php',
+		'template' => dirname(__FILE__) . '/post_association_has_many_meta.php',
 		'types' => array($association_has_many_post_types),
+		'mode' => WPALCHEMY_MODE_EXTRACT,
+		'prefix' => '_my_'
+	));
+	$pa_belongs_to_mb = new WPAlchemy_MetaBox(array
+	(
+		'id' => '_post_association_meta',
+		'title' => 'Post Association Meta',
+		'template' => dirname(__FILE__) . '/post_association_belongs_to_meta.php',
+		'types' => array($association_belongs_to_post_types),
 		'mode' => WPALCHEMY_MODE_EXTRACT,
 		'prefix' => '_my_'
 	));
